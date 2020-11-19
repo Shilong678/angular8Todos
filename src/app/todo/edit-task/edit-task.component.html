@@ -1,0 +1,44 @@
+<form [formGroup]="editForm">
+      <mat-form-field class="">
+        <input
+          matInput
+          placeholder="Label"
+          formControlName="label" 
+        />
+        <mat-error *ngIf="editForm.hasError('required', 'label')">
+          Label is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="">
+              <input
+              matInput
+              placeholder="Description"
+              formControlName="description" 
+            />
+            <mat-error *ngIf="editForm.hasError('required', 'description')">
+              Description is required
+            </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" >
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="editForm.hasError('required', 'category')">
+          Category is required
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="status">
+
+        <mat-radio-group aria-label="Status" formControlName="done">
+            <mat-radio-button [value]="getDate()" [checked]="task?.done">Completed</mat-radio-button>
+            <mat-radio-button value="false" [checked]="!task?.done">Pending</mat-radio-button>
+          </mat-radio-group>
+      </div>
+    <button mat-raised-button id="submitButton"  (click)="editTask()"  [disabled]="editForm.invalid">Edit</button>
+  </form>

@@ -1,0 +1,83 @@
+<h1>Todo List</h1>
+<div class="container">
+  <mat-form-field id="filterInput">
+    <input matInput placeholder="Filter" [(ngModel)]="filterTask" />
+  </mat-form-field>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>Label</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let element of dataSource | filter: filterType:filterTask">
+      <td>{{ element.label }}</td>
+      <td>{{ element.description }}</td>
+      <td>{{ element.category }}</td>
+      <td>
+        <ng-container *ngIf="!element.done; else displayStatus">
+          pending
+        </ng-container>
+        <ng-template #displayStatus>
+          Completed on {{ element.done }}
+        </ng-template>
+      </td>
+      <td>
+        <button mat-icon-button (click)="editTask(element.id)">
+          <mat-icon>
+            edit
+          </mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteTask(element.id)">
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <form [formGroup]="taskForm">
+    <div class="form-row">
+      <mat-form-field class="col-md-3">
+        <input matInput placeholder="Label" formControlName="label" />
+        <mat-error *ngIf="taskForm.hasError('required', 'label')">
+          Label is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6">
+        <input
+          matInput
+          placeholder="Description"
+          formControlName="description"
+        />
+        <mat-error *ngIf="taskForm.hasError('required', 'description')">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-3">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="taskForm.hasError('required', 'category')">
+          Category is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      id="submitButton"
+      (click)="createTask()"
+      type="reset"
+      [disabled]="taskForm.invalid"
+    >
+      Create
+    </button>
+  </form>
+</div>

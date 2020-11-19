@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: scroll;
+
+  tr {
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+  th {
+    color: #7c8080;
+    font-weight: lighter;
+    padding: 1%;
+  }
+
+  td {
+    padding: 0.3%;
+  }
+}
+
+#filterInput {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  outline: none;
+}
+
+form {
+  margin: 5% auto;
+}
+
+#submitButton {
+  float: right;
+  background-color: cadetblue;
+  letter-spacing: 0.4em;
+}

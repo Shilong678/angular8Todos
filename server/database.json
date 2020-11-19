@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "label": "Kitchen Cleanup and Polish",
+      "description": "Clean my dirty kitchen",
+      "category": "bureaucracy",
+      "done": false,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "label": "Taxes",
+      "description": "Start doing my taxes and contact my accountant jhon for advice",
+      "category": "bureaucracy",
+      "done": "22-10-2019"
+    },
+    {
+      "label": "Having Coffee",
+      "description": "Having coffee with Marta this afternoon",
+      "category": "bureaucracy",
+      "done": false,
+      "id": 3
+    },
+    {
+      "label": "Fetch Daughter",
+      "description": "Go to get my daughter from school",
+      "category": "house",
+      "done": "11-12-2019",
+      "id": 5
+    },
+    {
+      "label": "Mom Call",
+      "description": "Call my mom on Sunday",
+      "category": "house",
+      "done": false,
+      "id": 7
+    },
+    {
+      "label": "Interview call",
+      "description": "Interview call with Origin",
+      "category": "bureaucracy",
+      "done": "11-12-2019",
+      "id": 8
+    }
+  ]
+}
